@@ -3,13 +3,14 @@ import DnsIcon from '@mui/icons-material/Dns';
 import PublicIcon from '@mui/icons-material/Public';
 import SettingsEthernetIcon from '@mui/icons-material/SettingsEthernet';
 import SettingsInputCompositeIcon from '@mui/icons-material/SettingsInputComposite';
+import StorageIcon from '@mui/icons-material/Storage';
 
 export const NavbarItems = [
     {
         id: 1,
         icon: <PeopleIcon/>,
         label: "Autentification",
-        route: "route",
+        route: "authentication",
     },
     {
         id: 2,
@@ -34,5 +35,11 @@ export const NavbarItems = [
         icon: <SettingsInputCompositeIcon/> ,
         label: "Machine Learning",
         route: "machine-learning",
+    },
+    {
+        id: 6,
+        icons: <StorageIcon />,
+        label: "Storage",
+        route: "storage"
     }
 ]

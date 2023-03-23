@@ -21,6 +21,7 @@ import MailIcon from '@mui/icons-material/Mail';
 const drawerWidth = 200;
 
 import { NavbarItems } from './consts/NavbarItem'; 
+import { useNavigate } from 'react-router-dom';
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
     ({ theme, open }) => ({
@@ -68,6 +69,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 const Navbar = () => {
+    const navigate = useNavigate();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
@@ -119,18 +121,18 @@ const Navbar = () => {
                     </DrawerHeader>
                     <Divider />
                     <List>
-                        {NavbarItems.map((text, index) => (
-                            <ListItem key={text.id} disablePadding>
+                        {NavbarItems.map((val, index) => (
+                            <ListItem key={val.id} onClick={()=>{navigate(val.route)}}>
                                 <ListItemButton>
                                     <ListItemIcon>
-                                        {text.icon}
+                                        {val.icon}
                                     </ListItemIcon>
-                                    <ListItemText primary={text.label} />
+                                    <ListItemText primary={val.label} />
                                 </ListItemButton>
                             </ListItem>
                         ))}
                     </List>
-                    <Divider />
+                    {/* <Divider /> */}
                     {/* <List>
                         {['All mail', 'Trash', 'Spam'].map((text, index) => (
                             <ListItem key={text} disablePadding>
@@ -146,7 +148,7 @@ const Navbar = () => {
                 </Drawer>
                 <Main open={open}>
                     <DrawerHeader />
-                    <Typography paragraph>
+                    {/* <Typography paragraph>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
                         enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
@@ -172,7 +174,7 @@ const Navbar = () => {
                         tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
                         eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
                         posuere sollicitudin aliquam ultrices sagittis orci a.
-                    </Typography>
+                    </Typography> */}
                 </Main>
             </Box>
         </div>
