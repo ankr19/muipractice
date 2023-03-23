@@ -2,7 +2,7 @@ import React from 'react'
 
 const Storage = () => {
   return (
-    <div>This is Storage Page</div>
+    <div style={{ marginLeft: "350px" }}>This is Storage Page</div>
   )
 }
 

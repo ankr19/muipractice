@@ -2,7 +2,7 @@ import React from 'react'
 
 const Hosting = () => {
   return (
-    <div>Hosting</div>
+    <div style={{ marginLeft: "350px" }}>Hosting</div>
   )
 }
 

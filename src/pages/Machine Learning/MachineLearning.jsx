@@ -2,7 +2,7 @@ import React from 'react'
 
 const MachineLearning = () => {
   return (
-    <div>MachineLearning</div>
+    <div style={{ marginLeft: "350px" }}>MachineLearning</div>
   )
 }
 

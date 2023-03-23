@@ -2,7 +2,7 @@ import React from 'react'
 
 const Database = () => {
   return (
-    <div>This is Database Pages</div>
+    <div style={{ marginLeft: "350px" }}>This is Database Pages</div>
   )
 }
 
