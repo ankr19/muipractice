@@ -78,6 +78,7 @@ const Navbar = (props) => {
               key={item.id}
               onClick={() => navigate(item.route)}
           >
+            <ListItemButton>
             <ListItemIcon
               sx={navbarStyles.icons}
             >
@@ -87,6 +88,7 @@ const Navbar = (props) => {
               sx={navbarStyles.text}
               primary={item.label}
             />
+            </ListItemButton>
           </ListItem>
         ))}
       </List>

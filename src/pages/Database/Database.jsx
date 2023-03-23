@@ -1,8 +1,9 @@
+import { Grid } from '@mui/material'
 import React from 'react'
 
 const Database = () => {
   return (
-    <div style={{ marginLeft: "350px" }}>This is Database Pages</div>
+    <Grid item>This is Database Pages</Grid>
   )
 }
 

@@ -9,26 +9,12 @@ import {
   Route
 } from 'react-router-dom'
 
-import Authentication from './pages/Authentication/Authentication'
-import Database from './pages/Database/Database'
-import Function from './pages/Functions/Function'
-import Hosting from './pages/Hosting/Hosting'
-import MachineLearning from './pages/Machine Learning/MachineLearning'
-import Storage from './pages/Storage/Storage'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
-      <Routes>
-        <Route path='/' element={<App />}>
-          <Route path="authentication" element={<Authentication />} />
-          <Route path="database" element={<Database />} />
-          <Route path="functions" element={<Function />} />
-          <Route path="hosting" element={<Hosting />} />
-          <Route path="machine-learning" element={<MachineLearning />} />
-          <Route path="storage" element={<Storage />} />
-        </Route>
-      </Routes>
+      <App/>
     </Router>
   </React.StrictMode>,
 )

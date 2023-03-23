@@ -1,8 +1,9 @@
+import { Grid } from '@mui/material'
 import React from 'react'
 
 const Hosting = () => {
   return (
-    <div style={{ marginLeft: "350px" }}>Hosting</div>
+    <Grid item>Hosting</Grid>
   )
 }
 
