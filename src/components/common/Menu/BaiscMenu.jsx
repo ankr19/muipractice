@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-const BaiscMenu = ({anchorEl, handleClose, open}) => {
+const BaiscMenu = ({anchorEl, handleClose, open, notification}) => {
   return (
       <Menu
         id="basic-menu"
@@ -13,9 +13,10 @@ const BaiscMenu = ({anchorEl, handleClose, open}) => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        {notification.map((e, key)=>{
+          return(<MenuItem key={key} onClick={()=>{handleClose()}}>{e.label}</MenuItem>)
+        })}
+        {/* <MenuItem onClick={handleClose}>Profile</MenuItem> */}
       </Menu>)
 }
 

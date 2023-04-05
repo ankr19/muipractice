@@ -19,9 +19,10 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { NavbarItems } from './consts/NavbarItem';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import { navbarStyles } from './Style';
+import Header from '../Header/Header'
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -73,7 +74,8 @@ const Navbar2 = () => {
     const navigate = useNavigate();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
-
+    const [title, setTitle] = React.useState(null);
+    const location = useLocation();
     const handleDrawerOpen = () => {
         setOpen(true);
     };
@@ -81,9 +83,12 @@ const Navbar2 = () => {
     const handleDrawerClose = () => {
         setOpen(false);
     };
-
+    React.useEffect(() => {
+        const parsedTitle = location.pathname.replace(/\W/g, ' ');
+        setTitle(parsedTitle);
+    }, [location]);
     return (
-        <Box sx={{ display: 'flex' }}>
+        <Box >
             <CssBaseline />
             <AppBar position="fixed" open={open}>
                 <Toolbar>
@@ -96,8 +101,8 @@ const Navbar2 = () => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div">
-                        Persistent drawer
+                    <Typography variant="h6" noWrap>
+                        {title}
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -115,7 +120,7 @@ const Navbar2 = () => {
                 <Divider />
                 <List>
                     {NavbarItems.map((val, index) => (
-                        <ListItem key={val.id} onClick={()=>{navigate(val.route)}}>
+                        <ListItem key={val.id} onClick={() => { navigate(val.route) }}>
                             <ListItemButton>
                                 <ListItemIcon sx={navbarStyles.icons}>
                                     {val.icon}
@@ -125,11 +130,12 @@ const Navbar2 = () => {
                         </ListItem>
                     ))}
                 </List>
-                
+
             </Drawer>
             <Main open={open}>
                 <DrawerHeader />
-                <Outlet/>
+                <Header title={title} />
+                <Outlet />
             </Main>
         </Box>
     );
